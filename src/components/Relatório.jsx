@@ -23,7 +23,10 @@ function Relatorio({ data }) {
 	return (
 		<Container className='p-4 mt-4'>
 			<Container id="content-id">
-				<Card className='p-4'>
+				<Card className='p-4' style={{
+					borderBottomRightRadius: 0,
+					borderBottomLeftRadius: 0
+				}}>
 					<CardBody className='d-flex align-items-center justify-content-between'>
 						<h1>Relatório de Contatos de Clientes</h1>
 						<img
@@ -35,7 +38,7 @@ function Relatorio({ data }) {
 						/>
 					</CardBody>
 				</Card>
-				<Table striped hover className='mt-5 mb-4'>
+				<Table striped hover className='m-0'>
 					<thead className='table-dark'>
 						<tr>
 							<th>Cliente</th>
@@ -72,7 +75,10 @@ function Relatorio({ data }) {
 				</Table>
 				{
 					users && (
-						<Card bg='dark' text='white' className='text-center'>
+						<Card bg='dark' text='white' className='text-center' style={{
+							borderTopRightRadius: 0,
+							borderTopLeftRadius: 0
+						}}>
 							<CardBody>
 								<CardText>
 									Gerado pelo App <strong>VReport</strong> {dataAtual}
