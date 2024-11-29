@@ -1,4 +1,9 @@
+import { useState } from 'react';
+import { Button, Container, Row, Col, Table, Navbar } from 'react-bootstrap';
+
 function Relatorio({ data }) {
+	const users = data
+
 	return (
 		<Container className='p-4'>
 			<Container id="content-id">
