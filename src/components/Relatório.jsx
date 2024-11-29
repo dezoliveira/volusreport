@@ -19,8 +19,8 @@ function Relatorio({ data }) {
 						/>
 					</CardBody>
 				</Card>
-				<Table className='mt-4'>
-					<thead>
+				<Table striped hover className='mt-5'>
+					<thead className='table-dark'>
 						<tr>
 							<th>Cliente</th>
 							<th>Usuário</th>
@@ -31,28 +31,26 @@ function Relatorio({ data }) {
 					<tbody>
 						{
 							users !== undefined ? 
-							users.map((user, i) => (
-								<tr key={i}>
-									<td>
-										{user.name.first} {user.name.last}
-									</td>
-									<td>
-										{user.login.username}
-									</td> 
-									<td>
-										{user.email}
-									</td>
-									<td>
-										{user.phone}
-									</td>
-								</tr>
-							)) 
-							
+								users.map((user, i) => (
+									<tr key={i}>
+										<td>
+											{user.name.first} {user.name.last}
+										</td>
+										<td>
+											{user.login.username}
+										</td> 
+										<td>
+											{user.email}
+										</td>
+										<td>
+											{user.phone}
+										</td>
+									</tr>
+								)) 
 							: 
-							
-							<div className='loader'>
-								<Loading />
-							</div>
+								<div className='loader'>
+									<Loading />
+								</div>
 						}
 					</tbody>
 				</Table>

@@ -3,3 +3,11 @@
   top: 50%;
   right: 50%;
 }
+
+thead {
+  text-align: center;
+}
+
+table, thead {
+  border: 1px solid;
+}

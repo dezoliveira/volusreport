@@ -10,7 +10,7 @@ function App() {
   }, []);
 
   const loadUsers = async () => {
-    const response = await fetch('https://randomuser.me/api/?results=20')
+    const response = await fetch('https://randomuser.me/api/?results=200')
     const data = await response.json()
 
     setUsers(data.results)
