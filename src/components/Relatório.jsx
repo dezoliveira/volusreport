@@ -1,8 +1,24 @@
-import { Card, CardBody, Container, Row, Table, Spinner } from 'react-bootstrap';
+import { Card, CardBody, Container, Row, Table, Spinner, CardText } from 'react-bootstrap';
 import Loading from './Loading';
+import { useEffect, useState } from 'react';
 
 function Relatorio({ data }) {
+	const [dataAtual, setDataAtual] = useState("")
 	const users = data
+
+	useEffect(() => {
+		geraDataHoraRelatorio()
+	})
+
+	const geraDataHoraRelatorio = () => {
+		let data = new Date()
+		let hora = new Date()
+		data = data.toLocaleDateString('pt-BR', { timeZone: 'UTC' })
+		hora = hora.toLocaleTimeString('pt-BR', { hour12: false })
+
+		let dataHora = `${data} ás ${hora}`
+		setDataAtual(dataHora)
+	}
 
 	return (
 		<Container className='p-4 mt-4'>
@@ -19,7 +35,7 @@ function Relatorio({ data }) {
 						/>
 					</CardBody>
 				</Card>
-				<Table striped hover className='mt-5'>
+				<Table striped hover className='mt-5 mb-4'>
 					<thead className='table-dark'>
 						<tr>
 							<th>Cliente</th>
@@ -54,6 +70,17 @@ function Relatorio({ data }) {
 						}
 					</tbody>
 				</Table>
+				{
+					users && (
+						<Card bg='dark' text='white' className='text-center'>
+							<CardBody>
+								<CardText>
+									Gerado pelo App <strong>VReport</strong> {dataAtual}
+								</CardText>
+							</CardBody>
+						</Card>
+					)
+				}
 			</Container>
 		</Container>
 	)
