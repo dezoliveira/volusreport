@@ -1,14 +1,24 @@
-import { Container, Row, Table } from 'react-bootstrap';
+import { Card, CardBody, Container, Row, Table, Spinner } from 'react-bootstrap';
+import Loading from './Loading';
 
 function Relatorio({ data }) {
 	const users = data
 
 	return (
-		<Container className='p-4'>
+		<Container className='p-4 mt-4'>
 			<Container id="content-id">
-				<Row className='text-center p-4'>
-					<h1>Relatório de Contatos de Clientes</h1>  
-				</Row>
+				<Card className='p-4'>
+					<CardBody className='d-flex align-items-center justify-content-between'>
+						<h1>Relatório de Contatos de Clientes</h1>
+						<img
+							src="logo2.png"
+							width="200"
+							height="100"
+							className="d-inline-block align-top"
+							alt="React Bootstrap logo"
+						/>
+					</CardBody>
+				</Card>
 				<Table className='mt-4'>
 					<thead>
 						<tr>
@@ -20,7 +30,7 @@ function Relatorio({ data }) {
 					</thead>
 					<tbody>
 						{
-							users &&  
+							users !== undefined ? 
 							users.map((user, i) => (
 								<tr key={i}>
 									<td>
@@ -36,7 +46,13 @@ function Relatorio({ data }) {
 										{user.phone}
 									</td>
 								</tr>
-							))
+							)) 
+							
+							: 
+							
+							<div className='loader'>
+								<Loading />
+							</div>
 						}
 					</tbody>
 				</Table>
