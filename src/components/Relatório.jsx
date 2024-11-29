@@ -1,5 +1,4 @@
-import { useState } from 'react';
-import { Button, Container, Row, Col, Table, Navbar } from 'react-bootstrap';
+import { Container, Row, Table } from 'react-bootstrap';
 
 function Relatorio({ data }) {
 	const users = data

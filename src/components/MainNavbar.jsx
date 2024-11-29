@@ -23,6 +23,7 @@ function MainNavbar(){
       },
   };
 
+  // busca elemento para gerar o relatório
   const getTargetElement = () => document.getElementById('content-id')
 
   return (
